@@ -10,7 +10,7 @@ if [ -d $DTGROOT/tmp/xserver ]; then
 	cd $DTGROOT/tmp/xserver
 	git pull
 else
-	git clone https://gitlab.freedesktop.org/xorg/xserver.git -b xwayland-21.1
+	git clone --depth 1 https://gitlab.freedesktop.org/xorg/xserver.git -b xwayland-21.1
 fi
 
 cd $DTGROOT/tmp/xserver

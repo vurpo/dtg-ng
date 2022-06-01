@@ -26,23 +26,24 @@ p
 w
 ' | fdisk $SD || true
 partx $SD
+partprobe $SD
 # system partition
-mkfs.ext4 -F ${SD}1
+mkfs.ext4 -F ${SD}p1
 # data partition
-mkfs.fat -F32 ${SD}2
+mkfs.fat -F32 ${SD}p2
 
 mkdir -p $DTGROOT/tmp/root
 mkdir -p $DTGROOT/tmp/data
-mount ${SD}1 $DTGROOT/tmp/root
-mount ${SD}2 $DTGROOT/tmp/data
+mount ${SD}p1 $DTGROOT/tmp/root
+mount ${SD}p2 $DTGROOT/tmp/data
 
 ./kernel/build $DTGROOT $DEVICE $SD
 ./uboot/build $DTGROOT $DEVICE $SD
 ./fs/build $DTGROOT $DEVICE $SD
 ./fs/mk_data $DTGROOT $DEVICE $SD
 
-./programs_cross/re3/build $DTGROOT $DEVICE $SD
-./programs_cross/re3/install $DTGROOT $DEVICE $SD
+#./programs_cross/re3/build $DTGROOT $DEVICE $SD
+#./programs_cross/re3/install $DTGROOT $DEVICE $SD
 
 ./programs_cross/mesa/build $DTGROOT $DEVICE $SD
 ./programs_cross/mesa/install $DTGROOT $DEVICE $SD

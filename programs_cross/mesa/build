@@ -10,7 +10,7 @@ if [ -d $DTGROOT/tmp/mesa ]; then
 	cd $DTGROOT/tmp/mesa
 	git pull
 else
-	git clone https://gitlab.freedesktop.org/mesa/mesa.git -b main
+	git clone --depth 1 https://gitlab.freedesktop.org/mesa/mesa.git -b 21.3
 fi
 
 cd $DTGROOT/tmp/mesa

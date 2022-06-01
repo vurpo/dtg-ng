@@ -21,6 +21,9 @@ chroot $DTGROOT/tmp/root apt install -y sway xfce4-terminal xwayland build-essen
 chroot $DTGROOT/tmp/root apt install -y libopenal-dev libglew-dev libglfw3-dev libsndfile1-dev libmpg123-dev clang kmscube mesa-utils libmd0 libtirpc3 libcurl4|| true 
 chroot $DTGROOT/tmp/root apt install -y kodi-wayland kodi-bin kodi || true
 
+chroot $DTGROOT/tmp/root apt remove -y udisks2
+chroot $DTGROOT/tmp/root apt remove -y gpg
+chroot $DTGROOT/tmp/root apt install -y gnupg1
 echo 'deb http://ppa.launchpad.net/libretro/testing/ubuntu focal main' >> $DTGROOT/tmp/root/etc/apt/sources.list
 chroot $DTGROOT/tmp/root apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 3B2BA0B6750986899B189AFF18DAAE7FECA3745F # libretro stable ppa
 

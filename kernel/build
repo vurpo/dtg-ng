@@ -15,7 +15,7 @@ if [ -d 'linux' ]; then
 	cd linux
 	git pull
 else
-	git clone https://github.com/Maccraft123/linux --single-branch -b mac/go-next
+	git clone --depth 1 https://github.com/Maccraft123/linux --single-branch -b mac/go-next
 fi
 
 cd $DTGROOT/tmp/linux
