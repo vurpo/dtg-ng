@@ -30,3 +30,11 @@ Set up the empty image file as a loop device, and make note of the device name i
 ```
 
 Now use this device name as the SD card device path when running the `build-all` script (only argument to the script) or when running the individual build scripts.
+
+In the end you can detach the loop device like so:
+
+```
+# losetup -d /dev/loopX
+```
+
+And now your `image.img` will have the image in it.
